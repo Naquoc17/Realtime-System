@@ -1,0 +1,59 @@
+// ********************************************************************************
+// RTS SumSem 2024
+// Exercise: Execution Times
+// Name: Anh Quoc Nguyen
+// last change: Sonday May 26 06:00:50 CEST 2024
+//
+// ********************************************************************************
+
+1. WCET: 100% calls to myfunc2()
+
+myfunc1 probability: 0
+myfunc2 probability: 100
+Start-time      : 1716741544 s 343187900 ns
+Completion-time : 1716741549 s 892403600 ns
+Execution-time  :          5 s 549215700 ns
+Execution-time in sec: 5.5492 s
+
+
+2. BCET: 100% calls to myfunc1()
+
+myfunc1 probability: 100
+myfunc2 probability: 0
+Start-time      : 1716741619 s 517994400 ns
+Completion-time : 1716741620 s 690703100 ns
+Execution-time  :          1 s 172708700 ns
+Execution-time in sec: 1.1727 s
+
+
+3. ACET: 50% calls to myfunc1()
+
+myfunc1 probability: 50
+myfunc2 probability: 50
+Start-time      : 1716741678 s 497492700 ns
+Completion-time : 1716741681 s 868684500 ns
+Execution-time  :          3 s 371191800 ns
+Execution-time in sec: 3.3712 s
+
+
+   ACET: 50% calls to myfunc2()
+
+myfunc1 probability: 50
+myfunc2 probability: 50
+Start-time      : 1716741678 s 497492700 ns
+Completion-time : 1716741681 s 868684500 ns
+Execution-time  :          3 s 371191800 ns
+Execution-time in sec: 3.3712 s
+
+
+4. ACET: 20% calls to myfunc2()
+
+myfunc1 probability: 20
+myfunc2 probability: 80
+Start-time      : 1716741867 s 182390400 ns
+Completion-time : 1716741871 s 952646200 ns
+Execution-time  :          4 s 770255800 ns
+Execution-time in sec: 4.7703 s
+
+
+

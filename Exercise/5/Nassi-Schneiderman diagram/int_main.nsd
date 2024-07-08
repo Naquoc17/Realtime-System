@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-22" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="ADMIN" created="2024-06-05" changedby="ADMIN" changed="2024-06-12" origin="Structorizer 3.32-22" text="&#34;int main (int argc, char **argv)&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;int i, randomValue&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;struct timespec t_Start, t_Compl&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;struct timespec dt_exec&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;int: probFunc1 &#60;- atoi(argv[1])&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;myfunc1 probability: &#34;&#34;, probFunc1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;myfunc1 probability: &#34;&#34;, 100-probFunc1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;clock_gettime(CLOCK_REALTIME, &amp;t_Start)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;for i &#60;- 0 to 499999&#34;" comment="&#34;&#34;" counterVar="i" startValue="0" endValue="499999" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;randomValue &#60;- rand()%100&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<alternative text="&#34;randomValue &#60;= probFunc1 - 1&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;OUTPUT myfunc1(randomValue)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;OUTPUT myfunc2(randomValue - 1234)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;clock_gettime(CLOCK_REALTIME, &amp;t_Compl)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;dt_exec &#60;- diff_time(&amp;t_Start, &amp;t_Compl)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;Start-time: %11ld s %9ld ns\n&#34;&#34;, t_Start.tv_sec,t_Start.tv_nsec&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;Completion-time : %11ld s %9ld ns\n&#34;&#34;, t_Compl.tv_sec,t_Compl.tv_nsec&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;Execution-time  : %11ld s %9ld ns\n&#34;&#34;, dt_exec.tv_sec,dt_exec.tv_nsec&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;OUTPUT &#34;&#34;Execution-time in sec: %.4f s\n&#34;&#34;, (float) dt_exec.tv_sec + (float) dt_exec.tv_nsec/1000000000&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+	</children>
+</root>
