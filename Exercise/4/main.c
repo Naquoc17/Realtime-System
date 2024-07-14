@@ -19,6 +19,11 @@ struct timespec diff_time(struct timespec *t_Start, struct timespec *t_Compl) {
     dt.tv_nsec = t_Compl->tv_nsec - t_Start->tv_nsec;
     dt.tv_sec = t_Compl->tv_sec - t_Start->tv_sec;
 
+    if (dt.tv_nsec < 0){
+        dt.tv_nsec += 1000000000;
+        dt.tv_sec -= 1;
+    }
+
 	return dt;
 };
 
@@ -63,7 +68,7 @@ int main ( int argc , char ** argv ){
 
     int probFunc1 = atoi(argv[1]);
     printf("myfunc1 probability: %d\n", probFunc1);
-    printf("myfunc1 probability: %d\n", 100-probFunc1);
+    printf("myfunc2 probability: %d\n", 100-probFunc1);
 
     // get the time stamp for the start time t_Start
 	clock_gettime(CLOCK_REALTIME, &t_Start);
@@ -83,9 +88,9 @@ int main ( int argc , char ** argv ){
     dt_exec = diff_time(&t_Start, &t_Compl);
 
 	// print the results
-    printf("Start-time      : %11ld s %9ld ns\n", t_Start.tv_sec,t_Start.tv_nsec);
-    printf("Completion-time : %11ld s %9ld ns\n", t_Compl.tv_sec,t_Compl.tv_nsec);
-    printf("Execution-time  : %11ld s %9ld ns\n", dt_exec.tv_sec,dt_exec.tv_nsec);
-    printf("Execution-time in sec: %.4f s\n", (float) dt_exec.tv_sec + (float) dt_exec.tv_nsec/1000000000);
+    printf("Start-time      : %11ld s %9ld ns\n", t_Start.tv_sec,  t_Start.tv_nsec);
+    printf("Completion-time : %11ld s %9ld ns\n", t_Compl.tv_sec,  t_Compl.tv_nsec);
+    printf("Execution-time  : %11ld s %9ld ns\n",  dt_exec.tv_sec,  dt_exec.tv_nsec);
+    // printf("Execution-time in sec: %.4f s\n", dt_exec.tv_sec +  dt_exec.tv_nsec);
     return 0;
 }
